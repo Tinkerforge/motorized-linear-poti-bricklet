@@ -10,7 +10,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -30,32 +29,52 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:tinkerforge
+LIBS:Zilog
+LIBS:Xicor
 LIBS:video
 LIBS:ttl_ieee
 LIBS:transf
+LIBS:switches
 LIBS:supertex
 LIBS:stm32
 LIBS:stm8
+LIBS:silabs
 LIBS:sensors
 LIBS:rfcom
 LIBS:relays
 LIBS:references
 LIBS:pspice
+LIBS:Power_Management
 LIBS:powerint
+LIBS:Oscillators
+LIBS:onsemi
 LIBS:nxp_armmcu
+LIBS:nordicsemi
 LIBS:msp430
+LIBS:motor_drivers
+LIBS:microchip_pic32mcu
+LIBS:microchip_pic18mcu
 LIBS:microchip_pic16mcu
 LIBS:microchip_pic12mcu
 LIBS:microchip_pic10mcu
+LIBS:microchip_dspic33dsc
+LIBS:maxim
 LIBS:logo
+LIBS:Lattice
+LIBS:ir
 LIBS:hc11
 LIBS:graphic
 LIBS:gennum
 LIBS:ftdi
+LIBS:ESD_Protection
 LIBS:elec-unifil
+LIBS:diode
 LIBS:dc-dc
 LIBS:cmos_ieee
 LIBS:brooktre
+LIBS:analog_devices
+LIBS:Altera
+LIBS:actel
 LIBS:ac-dc
 LIBS:74xgxx
 LIBS:motorized-poti-cache
@@ -506,7 +525,6 @@ Wire Wire Line
 	4300 4150 4300 4100
 Wire Wire Line
 	4300 4100 3900 4100
-NoConn ~ 5950 4050
 $Comp
 L 3V3 #PWR015
 U 1 1 564B74D1
@@ -533,14 +551,14 @@ Wire Wire Line
 	5850 3750 5950 3750
 Wire Wire Line
 	5850 3950 5950 3950
-Text GLabel 5650 3850 0    60   Output ~ 0
+Text GLabel 5650 4050 0    60   Output ~ 0
 AIN
 Text GLabel 2200 2750 2    60   Input ~ 0
 AIN
 Wire Wire Line
 	1850 2750 2200 2750
 Wire Wire Line
-	5650 3850 5950 3850
+	5650 4050 5950 4050
 Wire Wire Line
 	2650 4100 2650 2850
 Wire Wire Line
@@ -549,4 +567,7 @@ Wire Wire Line
 	1850 2950 2550 2950
 Wire Wire Line
 	2550 2950 2550 4400
+NoConn ~ 5950 3850
+Text Notes 5400 4650 0    60   ~ 0
+Need to be adapted to Poti!
 $EndSCHEMATC
