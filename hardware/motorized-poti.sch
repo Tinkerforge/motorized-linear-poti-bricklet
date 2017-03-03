@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:tinkerforge
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -28,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:tinkerforge
 LIBS:Zilog
 LIBS:Xicor
 LIBS:video
@@ -346,7 +346,7 @@ $EndComp
 Wire Wire Line
 	3350 3700 3200 3700
 Wire Wire Line
-	3200 3550 3200 4000
+	3200 3550 3200 4100
 Connection ~ 3200 3700
 $Comp
 L GND #PWR010
@@ -570,4 +570,7 @@ Wire Wire Line
 NoConn ~ 5950 3850
 Text Notes 5400 4650 0    60   ~ 0
 Need to be adapted to Poti!
+Connection ~ 3200 4000
+Text Notes 3000 3950 0    39   ~ 0
+PWM\nControl
 $EndSCHEMATC
