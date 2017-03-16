@@ -1,4 +1,4 @@
-update=Di 07 Mär 2017 16:48:37 CET
+update=Mi 15 Mär 2017 10:47:13 CET
 version=1
 last_client=kicad
 [cvpcb]
@@ -45,16 +45,6 @@ LibName10=dip_sockets
 LibName11=standard
 LibName12=Logo
 LibName13=tinkerforge
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=kicad-libraries
@@ -139,3 +129,13 @@ LibName77=Altera
 LibName78=actel
 LibName79=ac-dc
 LibName80=74xgxx
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
