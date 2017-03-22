@@ -77,14 +77,13 @@ LIBS:Altera
 LIBS:actel
 LIBS:ac-dc
 LIBS:74xgxx
-LIBS:motorized-poti-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Motorized Linear Poti Bricklet"
-Date "2017-03-16"
+Date "2017-03-22"
 Rev "1.0"
 Comp "Tinkerforge GmbH"
 Comment1 "Licensed under CERN OHL v.1.1"
@@ -594,12 +593,12 @@ $EndComp
 $Comp
 L R_PACK4 RP1
 U 1 1 564B5FD5
-P 5200 4100
-F 0 "RP1" H 5200 4550 40  0000 C CNN
-F 1 "1k" H 5200 4050 40  0000 C CNN
-F 2 "4X0603" H 5200 4100 60  0001 C CNN
-F 3 "" H 5200 4100 60  0000 C CNN
-	1    5200 4100
+P 5100 4200
+F 0 "RP1" H 5100 4650 40  0000 C CNN
+F 1 "1k" H 5100 4150 40  0000 C CNN
+F 2 "4X0603" H 5100 4200 60  0001 C CNN
+F 3 "" H 5100 4200 60  0000 C CNN
+	1    5100 4200
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -613,17 +612,13 @@ F 3 "" H 5850 3950 60  0000 C CNN
 	1    5850 3950
 	1    0    0    -1  
 $EndComp
-NoConn ~ 5400 3850
-NoConn ~ 5400 3750
-NoConn ~ 5000 3750
-NoConn ~ 5000 3850
-Text GLabel 4850 3950 0    47   Input ~ 0
+Text GLabel 4850 3850 0    47   Input ~ 0
 FWD
-Text GLabel 4850 4050 0    47   Input ~ 0
+Text GLabel 4850 4150 0    47   Input ~ 0
 REV
-Text GLabel 1950 6450 0    47   Output ~ 0
-FWD
 Text GLabel 1950 6550 0    47   Output ~ 0
+FWD
+Text GLabel 1950 6450 0    47   Output ~ 0
 REV
 $Comp
 L CONN_02X04 P4
@@ -799,10 +794,6 @@ Wire Wire Line
 Wire Wire Line
 	5500 4050 5400 4050
 Wire Wire Line
-	5000 4050 4850 4050
-Wire Wire Line
-	5000 3950 4850 3950
-Wire Wire Line
 	2050 6450 1950 6450
 Wire Wire Line
 	2050 6550 1950 6550
@@ -892,4 +883,20 @@ F 3 "" H 1750 6350 60  0000 C CNN
 	1    1750 6350
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	5300 3850 5400 3850
+Wire Wire Line
+	5400 3850 5400 3950
+Wire Wire Line
+	5300 4150 5400 4150
+Wire Wire Line
+	5400 4150 5400 4050
+Wire Wire Line
+	4900 4150 4850 4150
+Wire Wire Line
+	4900 3850 4850 3850
+NoConn ~ 4900 3950
+NoConn ~ 4900 4050
+NoConn ~ 5300 4050
+NoConn ~ 5300 3950
 $EndSCHEMATC
