@@ -1,11 +1,11 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.2+dfsg1-stable)
+(kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~53~ubuntu16.04.1)
 
   (general
     (links 70)
     (no_connects 0)
-    (area 77.409499 90.459499 177.790501 110.840501)
+    (area 70.875139 90.459499 282.795857 162.890793)
     (thickness 1.6002)
-    (drawings 13)
+    (drawings 14)
     (tracks 235)
     (zones 0)
     (modules 31)
@@ -6774,6 +6774,9 @@
       (net 5 "Net-(P2-PadB)"))
   )
 
+  (gr_text "zu nah!" (at 141.425 93.15) (layer F.SilkS)
+    (effects (font (size 2.032 1.524) (thickness 0.3048)))
+  )
   (gr_line (start 77.6 93.15) (end 77.6 108.15) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_line (start 177.6 93.15) (end 177.6 108.15) (angle 90) (layer Edge.Cuts) (width 0.381))
   (gr_text - (at 149.3 102.95) (layer F.SilkS)
