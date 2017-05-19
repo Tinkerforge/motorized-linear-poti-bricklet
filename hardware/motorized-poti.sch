@@ -84,7 +84,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Motorized Linear Poti Bricklet"
-Date "2017-05-05"
+Date "2017-05-19"
 Rev "1.0"
 Comp "Tinkerforge GmbH"
 Comment1 "Licensed under CERN OHL v.1.1"
@@ -262,23 +262,23 @@ $EndComp
 $Comp
 L AKL_5_2 J1
 U 1 1 564B6463
-P 5500 1900
-F 0 "J1" H 5600 1895 60  0000 C CNN
-F 1 "AKL_5_2" H 5485 1800 60  0000 C CNN
-F 2 "AKL_5_2" H 5500 1900 60  0001 C CNN
-F 3 "" H 5500 1900 60  0000 C CNN
-	1    5500 1900
+P 5400 1900
+F 0 "J1" H 5500 1895 60  0000 C CNN
+F 1 "AKL_5_2" H 5385 1800 60  0000 C CNN
+F 2 "AKL_5_2" H 5400 1900 60  0001 C CNN
+F 3 "" H 5400 1900 60  0000 C CNN
+	1    5400 1900
 	0    -1   -1   0   
 $EndComp
 $Comp
 L GND #PWR08
 U 1 1 564B656A
-P 5550 2300
-F 0 "#PWR08" H 5550 2300 30  0001 C CNN
-F 1 "GND" H 5550 2230 30  0001 C CNN
-F 2 "" H 5550 2300 60  0001 C CNN
-F 3 "" H 5550 2300 60  0001 C CNN
-	1    5550 2300
+P 5350 2300
+F 0 "#PWR08" H 5350 2300 30  0001 C CNN
+F 1 "GND" H 5350 2230 30  0001 C CNN
+F 2 "" H 5350 2300 60  0001 C CNN
+F 3 "" H 5350 2300 60  0001 C CNN
+	1    5350 2300
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -731,14 +731,6 @@ Wire Wire Line
 	6500 2100 6800 2100
 Connection ~ 6650 2100
 Wire Wire Line
-	5550 2100 5550 2300
-Wire Wire Line
-	5450 2150 5450 2100
-Wire Wire Line
-	5300 2150 5450 2150
-Wire Wire Line
-	5300 1700 5300 2150
-Wire Wire Line
 	6000 2100 5900 2100
 Wire Wire Line
 	5900 2100 5900 1700
@@ -768,7 +760,7 @@ Text GLabel 5900 1700 1    60   Input ~ 0
 PWR
 Text GLabel 7400 1700 1    60   Input ~ 0
 PWR
-Text GLabel 5300 1700 1    60   Input ~ 0
+Text GLabel 5650 1700 1    60   Input ~ 0
 PWR
 Text GLabel 6700 3050 1    60   Input ~ 0
 PWR
@@ -858,4 +850,12 @@ Wire Wire Line
 	750  5950 700  5950
 Wire Wire Line
 	700  5950 700  5700
+Wire Wire Line
+	5350 2300 5350 2100
+Wire Wire Line
+	5450 2100 5450 2200
+Wire Wire Line
+	5450 2200 5650 2200
+Wire Wire Line
+	5650 2200 5650 1700
 $EndSCHEMATC
