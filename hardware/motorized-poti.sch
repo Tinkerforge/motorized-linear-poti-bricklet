@@ -377,9 +377,9 @@ F 3 "" H 1450 2700 60  0001 C CNN
 $EndComp
 Text GLabel 1850 4750 0    47   Input ~ 0
 S-CS
-Text GLabel 1850 4950 0    47   Input ~ 0
-S-CLK
 Text GLabel 1850 4850 0    47   Input ~ 0
+S-CLK
+Text GLabel 1850 4950 0    47   Input ~ 0
 S-MOSI
 Text GLabel 1950 5850 0    47   Output ~ 0
 S-MISO
