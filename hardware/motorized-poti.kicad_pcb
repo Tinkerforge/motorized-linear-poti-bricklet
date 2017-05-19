@@ -6796,7 +6796,7 @@
       (net 13 S-CS))
   )
 
-  (module SO-8-EP (layer Vorderseite) (tedit 59102665) (tstamp 591F2EE4)
+  (module kicad-libraries:SO-8-EP (layer Vorderseite) (tedit 591F0475) (tstamp 591F2EE4)
     (at 130.9 103.75 180)
     (path /564B53E4)
     (fp_text reference U2 (at 0 0 180) (layer F.SilkS)
@@ -6826,6 +6826,11 @@
       (net 1 GND))
     (pad EP smd rect (at 0 0 180) (size 3.3 2.4) (layers Vorderseite F.Paste F.Mask)
       (net 1 GND))
+    (model Housing_SO/SO-8.wrl
+      (at (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 90 180 180))
+    )
   )
 
   (gr_text + (at 137.2 98) (layer F.SilkS)
