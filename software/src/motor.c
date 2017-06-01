@@ -152,25 +152,37 @@ void motor_tick(Motor *motor) {
 		return;
 	}
 
+	uint32_t max_speed = MOTOR_SPEED_FAST;
+	uint32_t slow_down_diff = 15;
+	if(motor->drive_mode == MOTORIZED_LINEAR_POTI_DRIVE_MODE_SMOOTH) {
+		max_speed = MOTOR_SPEED_SMOOTH;
+		slow_down_diff = 5;
+	}
+
 	const uint16_t poti_position = poti_get_value();
-	uint16_t speed;
-	if(motor->drive_mode == MOTORIZED_LINEAR_POTI_DRIVE_MODE_FAST) {
-		const uint16_t diff = ABS(poti_position - motor->position);
-		switch(diff) {
-			case 10: speed = 970;  break;
-			case 9:  speed = 940;  break;
-			case 8:  speed = 910;  break;
-			case 7:  speed = 880;  break;
-			case 6:  speed = 850;  break;
-			case 5:  speed = 750;  break;
-			case 4:  speed = 750;  break;
-			case 3:  speed = 730;  break;
-			case 2:  speed = 730;  break;
-			case 1:  speed = 700;  break;
-			default: speed = 1000; break;
+	int32_t current_diff = poti_position - motor->position;
+
+	uint32_t speed = max_speed;
+
+	if(ABS(current_diff) < slow_down_diff) {
+		if(ABS(current_diff) < 5) {
+			speed = MOTOR_SPEED_SLOW_DOWN;
+		} else {
+			speed = MOTOR_SPEED_SMOOTH;
+		}
+	}
+
+	if(motor->last_diff == current_diff) {
+		if(system_timer_is_time_elapsed_ms(motor->last_diff_change_time, 10)) {
+			if(ABS(current_diff) < 10) {
+				speed = MOTOR_SPEED_SMOOTH;
+			} else {
+				speed = max_speed;
+			}
 		}
 	} else {
-		speed = 700;
+		motor->last_diff_change_time = system_timer_get_ms();
+		motor->last_diff = current_diff;
 	}
 
 	if(poti_position < motor->position) {
