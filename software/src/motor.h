@@ -26,6 +26,17 @@
 #include <stdbool.h>
 
 #define MOTOR_CALIBRATION_GAIN_MULTIPLIER 100000
+#define MOTOR_SPEED_FAST 1000
+#define MOTOR_SPEED_SMOOTH 700
+#define MOTOR_SPEED_SLOW_DOWN 550
+
+#define MOTOR_CALIBRATION_PAGE 1
+#define MOTOR_CALIBRATION_MAGIC_POS   0
+#define MOTOR_CALIBRATION_GAIN_POS    1
+#define MOTOR_CALIBRATION_OFFSET_POS  2
+
+#define MOTOR_CALIBRATION_MAGIC 0x12345678
+
 
 typedef enum {
 	CALIBRATION_STATE_OFF,
@@ -54,6 +65,9 @@ typedef struct {
 	uint32_t calibration_poti_value_min;
 	uint32_t calibration_gain;
 	uint32_t calibration_offset;
+
+	int32_t last_diff;
+	uint32_t last_diff_change_time;
 } Motor;
 
 void motor_new_position(Motor *motor);
