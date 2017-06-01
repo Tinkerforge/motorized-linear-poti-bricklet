@@ -56,6 +56,7 @@ typedef struct {
 	uint32_t calibration_offset;
 } Motor;
 
+void motor_new_position(Motor *motor);
 void motor_calibrate_init(Motor *motor);
 void motor_calibrate_tick(Motor *motor);
 void motor_init(Motor *motor);

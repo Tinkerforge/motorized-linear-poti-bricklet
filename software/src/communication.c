@@ -61,6 +61,8 @@ BootloaderHandleMessageResponse set_motor_position(const SetMotorPosition *data)
 		motor.position_reached_callback_send = false;
 	}
 
+	motor_new_position(&motor);
+
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 

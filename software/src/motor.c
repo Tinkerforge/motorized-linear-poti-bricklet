@@ -158,6 +158,10 @@ void motor_init(Motor *motor) {
 		motor->calibration_offset = 0;
 	}
 }
+
+void motor_new_position(Motor *motor) {
+	motor->last_diff_change_time = system_timer_get_ms();
+	motor->last_diff = poti_get_value() - motor->position;
 }
 
 void motor_tick(Motor *motor) {
