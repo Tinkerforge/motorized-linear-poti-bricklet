@@ -36,9 +36,6 @@ Poti poti;
 Motor motor;
 
 int main(void) {
-	uartbb_init();
-	uartbb_puts("Start Motorized Linear Poti Bricklet\n\r");
-
 	communication_init();
 	poti_init(&poti);
 	motor_init(&motor);
