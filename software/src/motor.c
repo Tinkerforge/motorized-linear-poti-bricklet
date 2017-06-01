@@ -27,6 +27,7 @@
 #include "bricklib2/utility/util_definitions.h"
 #include "bricklib2/hal/ccu4_pwm/ccu4_pwm.h"
 #include "bricklib2/hal/system_timer/system_timer.h"
+#include "bricklib2/bootloader/bootloader.h"
 
 #include "communication.h"
 #include "poti.h"
@@ -106,8 +107,6 @@ void motor_calibrate_tick(Motor *motor) {
 
 				motor->calibration_time = system_timer_get_ms();
 				motor->calibration_state = CALIBRATION_STATE_SAVE_CALIBRATION;
-
-				// TODO: Save calibration to flash
 			}
 
 			break;
@@ -116,9 +115,20 @@ void motor_calibrate_tick(Motor *motor) {
 		case CALIBRATION_STATE_SAVE_CALIBRATION: {
 			motor->calibration_offset = motor->calibration_poti_value_min;
 			motor->calibration_gain   = (4095*4*MOTOR_CALIBRATION_GAIN_MULTIPLIER)/(motor->calibration_poti_value_max - motor->calibration_offset);
-			motor->calibration_state = CALIBRATION_STATE_OFF;
+			motor->calibration_state  = CALIBRATION_STATE_OFF;
+
+
+			uint32_t page[EEPROM_PAGE_SIZE/sizeof(uint32_t)];
+			page[MOTOR_CALIBRATION_MAGIC_POS]  = MOTOR_CALIBRATION_MAGIC;
+			page[MOTOR_CALIBRATION_GAIN_POS]   = motor->calibration_gain;
+			page[MOTOR_CALIBRATION_OFFSET_POS] = motor->calibration_offset;
+			bootloader_write_eeprom_page(MOTOR_CALIBRATION_PAGE, page);
 
 			break;
+		}
+
+		case CALIBRATION_STATE_OFF: {
+			break; // Should be unreachable
 		}
 	}
 }
@@ -136,10 +146,18 @@ void motor_init(Motor *motor) {
 	motor->position_reached_callback_send = true;
 	motor->position_reached_callback_enabled = true;
 	motor->calibration_state = CALIBRATION_STATE_OFF;
-	motor->calibration_gain = MOTOR_CALIBRATION_GAIN_MULTIPLIER;
-	motor->calibration_offset = 0;
 
-	// TODO: Read calibration from flash
+	uint32_t page[EEPROM_PAGE_SIZE/sizeof(uint32_t)];
+	bootloader_read_eeprom_page(MOTOR_CALIBRATION_PAGE, page);
+
+	if(page[MOTOR_CALIBRATION_MAGIC_POS] == MOTOR_CALIBRATION_MAGIC) {
+		motor->calibration_gain   = page[MOTOR_CALIBRATION_GAIN_POS];
+		motor->calibration_offset = page[MOTOR_CALIBRATION_OFFSET_POS];
+	} else {
+		motor->calibration_gain   = MOTOR_CALIBRATION_GAIN_MULTIPLIER;
+		motor->calibration_offset = 0;
+	}
+}
 }
 
 void motor_tick(Motor *motor) {
