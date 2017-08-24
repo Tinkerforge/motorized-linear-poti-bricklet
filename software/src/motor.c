@@ -45,8 +45,8 @@ void motor_calibrate_init(Motor *motor) {
 void motor_calibrate_tick(Motor *motor) {
 	switch(motor->calibration_state) {
 		case CALIBRATION_STATE_START: {
-			ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 0);
-			ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 1000);
+			ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 1000);
+			ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 0);
 
 			motor->calibration_time = system_timer_get_ms();
 			motor->calibration_state = CALIBRATION_STATE_START_DRIVE_TO_MIN;
@@ -73,8 +73,8 @@ void motor_calibrate_tick(Motor *motor) {
 				NVIC_DisableIRQ(POTI_ADC_IRQ);
 				motor->calibration_poti_value_min = (poti_adc_value_sum + poti_adc_value_num/2)/poti_adc_value_num;
 				NVIC_EnableIRQ(POTI_ADC_IRQ);
-				ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 1000);
-				ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 0);
+				ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 0);
+				ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 1000);
 
 				motor->calibration_time = system_timer_get_ms();
 				motor->calibration_state = CALIBRATION_STATE_START_DRIVE_TO_MAX;
@@ -207,10 +207,10 @@ void motor_tick(Motor *motor) {
 		motor->last_diff = current_diff;
 	}
 
-	if(poti_position < motor->position) {
+	if(poti_position > motor->position) {
 		ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, speed);
 		ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 0);
-	} else if(poti_position > motor->position) {
+	} else if(poti_position < motor->position) {
 		ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, speed);
 		ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 0);
 	} else {
