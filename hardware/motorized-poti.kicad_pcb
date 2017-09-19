@@ -242,7 +242,7 @@
     )
   )
 
-  (module kicad-libraries:QFN24-4x4mm-0.5mm (layer Vorderseite) (tedit 590CA070) (tstamp 58CA7A6C)
+  (module kicad-libraries:QFN24-4x4mm-0.5mm (layer Vorderseite) (tedit 59C0E9FF) (tstamp 58CA7A6C)
     (at 191.4 103.3 270)
     (tags "QFN 24pin 0.5")
     (path /58BF3B03)
@@ -250,7 +250,7 @@
     (fp_text reference U1 (at 0 -0.4 270) (layer F.Fab)
       (effects (font (size 0.3 0.3) (thickness 0.075)))
     )
-    (fp_text value XMC1XXX24 (at 0 0.8 270) (layer F.Fab)
+    (fp_text value XMC1100-16 (at 0 0.8 270) (layer F.Fab)
       (effects (font (size 0.3 0.3) (thickness 0.075)))
     )
     (fp_line (start -1 -2) (end 2 -2) (layer F.Fab) (width 0.15))
