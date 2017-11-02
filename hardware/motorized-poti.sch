@@ -59,9 +59,11 @@ LIBS:microchip_pic12mcu
 LIBS:microchip_pic10mcu
 LIBS:microchip_dspic33dsc
 LIBS:maxim
+LIBS:logo
 LIBS:Lattice
 LIBS:ir
 LIBS:hc11
+LIBS:graphic
 LIBS:gennum
 LIBS:ftdi
 LIBS:ESD_Protection
@@ -75,7 +77,6 @@ LIBS:Altera
 LIBS:actel
 LIBS:ac-dc
 LIBS:74xgxx
-LIBS:motorized-poti-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
