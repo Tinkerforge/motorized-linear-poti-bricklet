@@ -39,12 +39,8 @@ uint32_t poti_adc_value_sum = 0;
 uint32_t poti_adc_value_num = 0;
 
 void __attribute__((optimize("-O3"))) __attribute__ ((section (".ram_code"))) poti_adc_irq_handler(void) {
-//	XMC_GPIO_SetOutputHigh(UARTBB_TX_PIN);
-
 	poti_adc_value_sum += (VADC->GLOBRES & 0xFFFF);
 	poti_adc_value_num++;
-
-//	XMC_GPIO_SetOutputLow(UARTBB_TX_PIN);
 }
 
 void poti_init_adc(Poti *poti) {
@@ -132,8 +128,6 @@ void poti_update_value(Poti *poti) {
 
 	if(system_timer_is_time_elapsed_ms(last_update, 1)) {
 		NVIC_DisableIRQ(POTI_ADC_IRQ);
-//		uartbb_puts("value: "); uartbb_putu(poti_adc_value_num); uartbb_puts(" "); uartbb_putu(poti_adc_value_sum); uartbb_putnl();
-
 
 		uint32_t calibrated_sum = poti_adc_value_sum;
 		if(calibrated_sum < poti_adc_value_num*motor.calibration_offset) {
