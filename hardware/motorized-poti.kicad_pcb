@@ -43,7 +43,7 @@
   )
 
   (setup
-    (last_trace_width 0.5)
+    (last_trace_width 0.249)
     (user_trace_width 0.2)
     (user_trace_width 0.25)
     (user_trace_width 0.35052)
@@ -6642,14 +6642,14 @@
     )
   )
 
-  (module kicad-libraries:SOT23-5 (layer Vorderseite) (tedit 58F778C6) (tstamp 592FE105)
+  (module kicad-libraries:SOT23-5 (layer Vorderseite) (tedit 5A0DB4A9) (tstamp 592FE105)
     (at 87.9 100.3 90)
     (path /592EEFC5)
     (attr smd)
     (fp_text reference U101 (at 0 0.35052 90) (layer F.Fab)
       (effects (font (size 0.2 0.2) (thickness 0.05)))
     )
-    (fp_text value TLV271 (at -0.03 -0.38 90) (layer F.Fab)
+    (fp_text value TLV271IDBVR (at -0.03 -0.38 90) (layer F.Fab)
       (effects (font (size 0.2 0.2) (thickness 0.05)))
     )
     (fp_line (start -1.5494 -0.8509) (end 1.5494 -0.8509) (layer F.Fab) (width 0.001))
