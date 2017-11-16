@@ -1,4 +1,4 @@
-update=Do 02 Nov 2017 15:30:50 CET
+update=Do 16 Nov 2017 15:21:55 CET
 version=1
 last_client=kicad
 [cvpcb]
@@ -57,7 +57,7 @@ SpiceUseNetNumbers=0
 LabSize=60
 [eeschema]
 version=1
-LibDir=kicad-libraries
+LibDir=kicad-libraries.pretty
 [eeschema/libraries]
 LibName1=tinkerforge
 LibName2=power
