@@ -27,6 +27,7 @@
 #include "configs/config_poti.h"
 
 #include "bricklib2/hal/system_timer/system_timer.h"
+#include "bricklib2/utility/util_definitions.h"
 
 #include "xmc_vadc.h"
 #include "xmc_gpio.h"
@@ -161,5 +162,5 @@ void poti_tick(Poti *poti) {
 
 extern Poti poti;
 uint16_t poti_get_value() {
-	return poti.value;
+	return BETWEEN(0, poti.value, 100);
 }
