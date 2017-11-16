@@ -100,7 +100,10 @@ void motor_calibrate_tick(Motor *motor) {
 		case CALIBRATION_STATE_SAVE_VALUE_MAX: {
 			if(system_timer_is_time_elapsed_ms(motor->calibration_time, MOTOR_POTI_VALUE_WAIT)) {
 				NVIC_DisableIRQ(POTI_ADC_IRQ);
-				motor->calibration_poti_value_max = (poti_adc_value_sum + poti_adc_value_num/2)/poti_adc_value_num;
+				// Add 1% margin to min and max value
+				uint32_t orig_max = ((poti_adc_value_sum + poti_adc_value_num/2)/poti_adc_value_num);
+				motor->calibration_poti_value_max = orig_max*99/100;
+				motor->calibration_poti_value_min += (orig_max-motor->calibration_poti_value_max);
 				NVIC_EnableIRQ(POTI_ADC_IRQ);
 				ccu4_pwm_set_duty_cycle(MOTOR_REVERSE_CCU4_SLICE, 0);
 				ccu4_pwm_set_duty_cycle(MOTOR_FORWARD_CCU4_SLICE, 0);
