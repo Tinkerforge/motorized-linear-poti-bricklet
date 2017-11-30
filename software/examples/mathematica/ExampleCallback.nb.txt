@@ -1,0 +1,27 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Motorized Linear Poti Bricklet*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+mlp=NETNew["Tinkerforge.BrickletMotorizedLinearPoti",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Callback function for position callback (parameter has range 0 to 100)*)
+PositionCB[sender_,position_]:=
+ Print["Position: "<>ToString[position]]
+AddEventHandler[mlp@PositionCallback,PositionCB]
+
+(*Set period for position callback to 0.05s (50ms) without a threshold*)
+option=Tinkerforge`BrickletMotorizedLinearPoti`THRESHOLDUOPTIONUOFF
+mlp@SetPositionCallbackConfiguration[50,False,option,0,0]
+
+Input["Click OK to exit"]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[mlp]
+ReleaseNETObject[ipcon]

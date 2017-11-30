@@ -17,8 +17,7 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Register position reached callback (parameter has range 0 to 100)
-mlp.register_callback(BrickletMotorizedLinearPoti::CALLBACK_POSITION_REACHED) \
-do |position|
+mlp.register_callback(BrickletMotorizedLinearPoti::CALLBACK_POSITION_REACHED) do |position|
   puts "Position: #{position}"
 end
 

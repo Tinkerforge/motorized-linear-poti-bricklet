@@ -1,0 +1,19 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Motorized Linear Poti Bricklet*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+mlp=NETNew["Tinkerforge.BrickletMotorizedLinearPoti",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Get current position (range is 0 to 100)*)
+Print["Position: "<>ToString[mlp@GetPosition[]]]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[mlp]
+ReleaseNETObject[ipcon]
