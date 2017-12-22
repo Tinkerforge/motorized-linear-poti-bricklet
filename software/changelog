@@ -1,5 +1,5 @@
 2017-11-16: 2.0.0 (9e57aa9)
 - Initial version
 
-2017-12-22: 2.0.1 (TBD)
+2017-12-22: 2.0.1 (c49cd43)
 - Make sure poti value can't continuously jump between two values 
