@@ -123,6 +123,9 @@ void poti_init_adc(Poti *poti) {
 
 void poti_update_value(Poti *poti) {
 	static uint32_t last_update = 0;
+	static uint16_t last_values[2] = {0xFFFF, 0xFFFF};
+	static uint32_t last_values_count[2] = {0, 0};
+
 	if(motor.calibration_state != CALIBRATION_STATE_OFF) {
 		return;
 	}
@@ -141,7 +144,29 @@ void poti_update_value(Poti *poti) {
 		// We want "(poti_adc_value_sum*100 + 2*4095*poti_adc_value_num) / (4*4095*poti_adc_value_num)"
 		// this is equivalent to the formula below, but we have less risk of overflow
 		if(poti_adc_value_num > 0) {
-			poti->value = (calibrated_sum*10 + 819*poti_adc_value_num) / (1638*poti_adc_value_num);
+			const uint16_t value = (calibrated_sum*10 + 819*poti_adc_value_num) / (1638*poti_adc_value_num);
+			if((value == last_values[0]) || (value == last_values[1])) {
+				if(value == last_values[0]) {
+					last_values_count[0]++;
+				} else {
+					last_values_count[1]++;
+				}
+			} else {
+				last_values[1] = last_values[0];
+				last_values[0] = value;
+				last_values_count[0] = 0;
+				last_values_count[1] = 0;
+			}
+
+			if((last_values_count[0] > 2) && (last_values_count[1] > 2)) {
+				if(last_values_count[0] > last_values_count[1]) {
+					poti->value = last_values[0];
+				} else {
+					poti->value = last_values[1];
+				}
+			} else {
+				poti->value = value;
+			}
 		}
 
 		poti_adc_value_sum = 0;
