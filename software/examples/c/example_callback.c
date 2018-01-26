@@ -11,7 +11,7 @@
 void cb_position(uint16_t position, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Position: %d\n", position);
+	printf("Position: %u\n", position);
 }
 
 int main(void) {

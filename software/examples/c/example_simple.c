@@ -30,7 +30,7 @@ int main(void) {
 		return 1;
 	}
 
-	printf("Position: %d\n", position);
+	printf("Position: %u\n", position);
 
 	printf("Press key to exit\n");
 	getchar();
