@@ -25,11 +25,11 @@ const
 var
   e: TExample;
 
-{ Callback procedure for position reached callback (parameter has range 0 to 100) }
+{ Callback procedure for position reached callback }
 procedure TExample.PositionReachedCB(sender: TBrickletMotorizedLinearPoti;
                                      const position: word);
 begin
-  WriteLn(Format('Position: %d', [position]));
+  WriteLn(Format('Position: %d', [position])); { Range: 0 to 100 }
 end;
 
 procedure TExample.Execute;

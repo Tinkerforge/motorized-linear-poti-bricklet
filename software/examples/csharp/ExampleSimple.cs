@@ -16,9 +16,9 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current position (range is 0 to 100)
+		// Get current position
 		int position = mlp.GetPosition();
-		Console.WriteLine("Position: " + position);
+		Console.WriteLine("Position: " + position); // Range: 0 to 100
 
 		Console.WriteLine("Press enter to exit");
 		Console.ReadLine();

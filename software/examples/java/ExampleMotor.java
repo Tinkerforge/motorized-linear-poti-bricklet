@@ -18,10 +18,10 @@ public class ExampleMotor {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add position reached listener (parameter has range 0 to 100)
+		// Add position reached listener
 		mlp.addPositionReachedListener(new BrickletMotorizedLinearPoti.PositionReachedListener() {
 			public void positionReached(int position) {
-				System.out.println("Position: " + position);
+				System.out.println("Position: " + position); // Range: 0 to 100
 			}
 		});
 

@@ -23,14 +23,14 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current position (range is 0 to 100)
+	// Get current position
 	uint16_t position;
 	if(motorized_linear_poti_get_position(&mlp, &position) < 0) {
 		fprintf(stderr, "Could not get position, probably timeout\n");
 		return 1;
 	}
 
-	printf("Position: %u\n", position);
+	printf("Position: %u\n", position); // Range: 0 to 100
 
 	printf("Press key to exit\n");
 	getchar();

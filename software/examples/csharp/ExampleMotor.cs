@@ -7,10 +7,10 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
-	// Callback function for position reached callback (parameter has range 0 to 100)
+	// Callback function for position reached callback
 	static void PositionReachedCB(BrickletMotorizedLinearPoti sender, int position)
 	{
-		Console.WriteLine("Position: " + position);
+		Console.WriteLine("Position: " + position); // Range: 0 to 100
 	}
 
 	static void Main()

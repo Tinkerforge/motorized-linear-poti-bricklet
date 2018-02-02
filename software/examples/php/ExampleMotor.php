@@ -10,10 +10,10 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
-// Callback function for position reached callback (parameter has range 0 to 100)
+// Callback function for position reached callback
 function cb_positionReached($position)
 {
-    echo "Position: $position\n";
+    echo "Position: $position\n"; // Range: 0 to 100
 }
 
 $ipcon = new IPConnection(); // Create IP connection

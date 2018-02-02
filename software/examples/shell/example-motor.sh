@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
-# Handle incoming position reached callbacks (parameter has range 0 to 100)
+# Handle incoming position reached callbacks
 tinkerforge dispatch motorized-linear-poti-bricklet $uid position-reached &
 
 # Move slider smooth to the middle

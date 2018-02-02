@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
-# Handle incoming position callbacks (parameter has range 0 to 100)
+# Handle incoming position callbacks
 tinkerforge dispatch motorized-linear-poti-bricklet $uid position &
 
 # Set period for position callback to 0.05s (50ms) without a threshold

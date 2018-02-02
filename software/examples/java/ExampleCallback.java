@@ -18,10 +18,10 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add position listener (parameter has range 0 to 100)
+		// Add position listener
 		mlp.addPositionListener(new BrickletMotorizedLinearPoti.PositionListener() {
 			public void position(int position) {
-				System.out.println("Position: " + position);
+				System.out.println("Position: " + position); // Range: 0 to 100
 			}
 		});
 

@@ -18,9 +18,9 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current position (range is 0 to 100)
+		// Get current position
 		int position = mlp.getPosition(); // Can throw com.tinkerforge.TimeoutException
-		System.out.println("Position: " + position);
+		System.out.println("Position: " + position); // Range: 0 to 100
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();

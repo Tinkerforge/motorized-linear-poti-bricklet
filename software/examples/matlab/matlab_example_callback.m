@@ -22,7 +22,7 @@ function matlab_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for position callback (parameter has range 0 to 100)
+% Callback function for position callback
 function cb_position(e)
-    fprintf('Position: %i\n', e.position);
+    fprintf('Position: %i\n', e.position); % Range: 0 to 100
 end

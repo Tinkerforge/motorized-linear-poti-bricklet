@@ -16,9 +16,9 @@ mlp = BrickletMotorizedLinearPoti.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register position reached callback (parameter has range 0 to 100)
+# Register position reached callback
 mlp.register_callback(BrickletMotorizedLinearPoti::CALLBACK_POSITION_REACHED) do |position|
-  puts "Position: #{position}"
+  puts "Position: #{position}" # Range: 0 to 100
 end
 
 # Move slider smooth to the middle

@@ -16,9 +16,9 @@ mlp = BrickletMotorizedLinearPoti.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current position (range is 0 to 100)
+# Get current position
 position = mlp.get_position
-puts "Position: #{position}"
+puts "Position: #{position}" # Range: 0 to 100
 
 puts 'Press key to exit'
 $stdin.gets

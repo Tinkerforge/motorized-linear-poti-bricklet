@@ -10,9 +10,9 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 mlp=NETNew["Tinkerforge.BrickletMotorizedLinearPoti",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for position reached callback (parameter has range 0 to 100)*)
+(*Callback function for position reached callback*)
 PositionReachedCB[sender_,position_]:=
- Print["Position: "<>ToString[position]]
+ Print["Position: "<>ToString[position]](*Range: 0 to 100*)
 AddEventHandler[mlp@PositionReachedCallback,PositionReachedCB]
 
 (*Move slider smooth to the middle*)

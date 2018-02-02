@@ -7,12 +7,12 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
-# Callback subroutine for position callback (parameter has range 0 to 100)
+# Callback subroutine for position callback
 sub cb_position
 {
     my ($position) = @_;
 
-    print "Position: $position\n";
+    print "Position: $position\n"; # Range: 0 to 100
 }
 
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection

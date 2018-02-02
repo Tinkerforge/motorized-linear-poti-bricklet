@@ -25,9 +25,9 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register position reached callback
 mlp.on(Tinkerforge.BrickletMotorizedLinearPoti.CALLBACK_POSITION_REACHED,
-    // Callback function for position reached callback (parameter has range 0 to 100)
+    // Callback function for position reached callback
     function (position) {
-        console.log('Position: ' + position);
+        console.log('Position: ' + position); // Range: 0 to 100
     }
 );
 

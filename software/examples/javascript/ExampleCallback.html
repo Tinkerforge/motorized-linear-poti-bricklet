@@ -48,9 +48,9 @@
 
                 // Register position callback
                 mlp.on(Tinkerforge.BrickletMotorizedLinearPoti.CALLBACK_POSITION,
-                    // Callback function for position callback (parameter has range 0 to 100)
+                    // Callback function for position callback
                     function (position) {
-                        textArea.value += 'Position: ' + position + '\n';
+                        textArea.value += 'Position: ' + position + '\n'; // Range: 0 to 100
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

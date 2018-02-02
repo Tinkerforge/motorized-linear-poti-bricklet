@@ -10,8 +10,8 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 mlp=NETNew["Tinkerforge.BrickletMotorizedLinearPoti",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Get current position (range is 0 to 100)*)
-Print["Position: "<>ToString[mlp@GetPosition[]]]
+(*Get current position*)
+Print["Position: "<>ToString[mlp@GetPosition[]]](*Range: 0 to 100*)
 
 (*Clean up*)
 ipcon@Disconnect[]

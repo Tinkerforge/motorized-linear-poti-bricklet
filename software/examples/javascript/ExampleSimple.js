@@ -16,10 +16,10 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current position (range is 0 to 100)
+        // Get current position
         mlp.getPosition(
             function (position) {
-                console.log('Position: ' + position);
+                console.log('Position: ' + position); // Range: 0 to 100
             },
             function (error) {
                 console.log('Error: ' + error);

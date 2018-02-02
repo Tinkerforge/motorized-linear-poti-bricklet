@@ -21,7 +21,7 @@ function octave_example_motor()
     ipcon.disconnect();
 end
 
-% Callback function for position reached callback (parameter has range 0 to 100)
+% Callback function for position reached callback
 function cb_position_reached(e)
-    fprintf("Position: %d\n", e.position);
+    fprintf("Position: %d\n", e.position); % Range: 0 to 100
 end

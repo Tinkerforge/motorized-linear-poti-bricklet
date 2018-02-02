@@ -8,9 +8,9 @@ UID = "XYZ" # Change XYZ to the UID of your Motorized Linear Poti Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_motorized_linear_poti import BrickletMotorizedLinearPoti
 
-# Callback function for position callback (parameter has range 0 to 100)
+# Callback function for position callback
 def cb_position(position):
-    print("Position: " + str(position))
+    print("Position: " + str(position)) # Range: 0 to 100
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
