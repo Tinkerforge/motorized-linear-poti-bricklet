@@ -16,7 +16,7 @@ PositionReachedCB[sender_,position_]:=
 AddEventHandler[mlp@PositionReachedCallback,PositionReachedCB]
 
 (*Move slider smooth to the middle*)
-mlp@SetMotorPosition[50,BrickletMotorizedLinearPoti`DRIVEUMODEUSMOOTH,False]
+mlp@SetMotorPosition[50,Tinkerforge`BrickletMotorizedLinearPoti`DRIVEUMODEUSMOOTH,False]
 
 Input["Click OK to exit"]
 

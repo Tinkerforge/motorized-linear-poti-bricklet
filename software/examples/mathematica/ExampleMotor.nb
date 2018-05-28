@@ -24,7 +24,7 @@ Notebook[{
    RowBox[{"
 "}],
    RowBox[{"(*", "Move slider smooth to the middle", "*)"}],
-   RowBox[{"mlp", "@", RowBox[{"SetMotorPosition", "[", RowBox[{"50", ",", "BrickletMotorizedLinearPoti`DRIVEUMODEUSMOOTH", ",", "False"}], "]"}]}],
+   RowBox[{"mlp", "@", RowBox[{"SetMotorPosition", "[", RowBox[{"50", ",", "Tinkerforge`BrickletMotorizedLinearPoti`DRIVEUMODEUSMOOTH", ",", "False"}], "]"}]}],
    RowBox[{"
 "}],
    RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}],
