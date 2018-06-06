@@ -28,15 +28,15 @@
 #include "motor.h"
 #include "poti.h"
 
-CallbackValue callback_value_position;
+CallbackValue_uint16_t callback_value_position;
 
 extern Motor motor;
 
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	switch(tfp_get_fid_from_message(message)) {
-		case FID_GET_POSITION: return get_callback_value(message, response, &callback_value_position);
-		case FID_SET_POSITION_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration(message, &callback_value_position);
-		case FID_GET_POSITION_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration(message, response, &callback_value_position);
+		case FID_GET_POSITION: return get_callback_value_uint16_t(message, response, &callback_value_position);
+		case FID_SET_POSITION_CALLBACK_CONFIGURATION: return set_callback_value_callback_configuration_uint16_t(message, &callback_value_position);
+		case FID_GET_POSITION_CALLBACK_CONFIGURATION: return get_callback_value_callback_configuration_uint16_t(message, response, &callback_value_position);
 		case FID_SET_MOTOR_POSITION: return set_motor_position(message);
 		case FID_GET_MOTOR_POSITION: return get_motor_position(message, response);
 		case FID_CALIBRATE: return calibrate(message);
@@ -96,7 +96,7 @@ BootloaderHandleMessageResponse get_position_reached_callback_configuration(cons
 
 
 bool handle_position_callback(void) {
-	return handle_callback_value_callback(&callback_value_position, FID_CALLBACK_POSITION);
+	return handle_callback_value_callback_uint16_t(&callback_value_position, FID_CALLBACK_POSITION);
 }
 
 bool handle_position_reached_callback(void) {
@@ -130,7 +130,7 @@ void communication_tick(void) {
 }
 
 void communication_init(void) {
-	callback_value_init(&callback_value_position, poti_get_value);
+	callback_value_init_uint16_t(&callback_value_position, poti_get_value);
 
 	communication_callback_init();
 }
