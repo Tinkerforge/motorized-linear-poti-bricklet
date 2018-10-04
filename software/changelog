@@ -7,5 +7,5 @@
 2018-06-07: 2.0.2 (8ebe052)
 - Fix wrong length for get-position packet (through bricklib2)
 
-2018-10-04: 2.0.3 (TBD)
+2018-10-04: 2.0.3 (1908a3f)
 - Fix race condition with potential buffer overflow (through bricklib2)
