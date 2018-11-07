@@ -12,10 +12,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    // Create receiver for position events.
-    let position_receiver = mlp.get_position_receiver();
+    let position_receiver = mlp.get_position_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `mlp` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `mlp` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for position in position_receiver {
