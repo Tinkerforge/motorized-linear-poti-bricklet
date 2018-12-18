@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/tinkerforge/go-api-bindings/ipconnection"
-	"github.com/tinkerforge/go-api-bindings/motorized_linear_poti_bricklet"
+	"github.com/Tinkerforge/go-api-bindings/ipconnection"
+	"github.com/Tinkerforge/go-api-bindings/motorized_linear_poti_bricklet"
 )
 
 const ADDR string = "localhost:4223"
