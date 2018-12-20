@@ -1,8 +1,5 @@
-use std::{io, error::Error};
-use std::thread;
-use tinkerforge::{ip_connection::IpConnection, 
-                  motorized_linear_poti_bricklet::*};
-
+use std::{error::Error, io, thread};
+use tinkerforge::{ip_connection::IpConnection, motorized_linear_poti_bricklet::*};
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -13,21 +10,21 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mlp = MotorizedLinearPotiBricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-    // Don't use device before ipcon is connected.
+                                          // Don't use device before ipcon is connected.
 
-     let position_receiver = mlp.get_position_callback_receiver();
+    let position_receiver = mlp.get_position_callback_receiver();
 
-        // Spawn thread to handle received callback messages. 
-        // This thread ends when the `mlp` object
-        // is dropped, so there is no need for manual cleanup.
-        thread::spawn(move || {
-            for position in position_receiver {           
-                		println!("Position: {}", position); // Range: 0 to 100
-            }
-        });
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `mlp` object
+    // is dropped, so there is no need for manual cleanup.
+    thread::spawn(move || {
+        for position in position_receiver {
+            println!("Position: {}", position); // Range: 0 to 100
+        }
+    });
 
-		// Set period for position callback to 0.05s (50ms) without a threshold.
-		mlp.set_position_callback_configuration(50, false, 'x', 0, 0);
+    // Set period for position callback to 0.05s (50ms) without a threshold.
+    mlp.set_position_callback_configuration(50, false, 'x', 0, 0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
