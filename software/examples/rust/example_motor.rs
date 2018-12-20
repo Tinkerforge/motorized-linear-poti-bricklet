@@ -1,5 +1,8 @@
-use std::{error::Error, io, thread};
-use tinkerforge::{ip_connection::IpConnection, motorized_linear_poti_bricklet::*};
+use std::{io, error::Error};
+use std::thread;
+use tinkerforge::{ip_connection::IpConnection, 
+                  motorized_linear_poti_bricklet::*};
+
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -10,21 +13,22 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mlp = MotorizedLinearPotiBricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-                                          // Don't use device before ipcon is connected.
+    // Don't use device before ipcon is connected.
 
-    let position_reached_receiver = mlp.get_position_reached_callback_receiver();
+     let position_reached_receiver = mlp.get_position_reached_callback_receiver();
 
-    // Spawn thread to handle received callback messages.
-    // This thread ends when the `mlp` object
-    // is dropped, so there is no need for manual cleanup.
-    thread::spawn(move || {
-        for position_reached in position_reached_receiver {
-            println!("Position: {}", position_reached); // Range: 0 to 100
-        }
-    });
+        // Spawn thread to handle received callback messages. 
+        // This thread ends when the `mlp` object
+        // is dropped, so there is no need for manual cleanup.
+        thread::spawn(move || {
+            for position_reached in position_reached_receiver {           
+                		println!("Position: {}", position_reached); // Range: 0 to 100
+            }
+        });
 
-    // Move slider smooth to the middle
-    mlp.set_motor_position(50, MOTORIZED_LINEAR_POTI_BRICKLET_DRIVE_MODE_SMOOTH, false);
+		// Move slider smooth to the middle
+		mlp.set_motor_position(50, MOTORIZED_LINEAR_POTI_BRICKLET_DRIVE_MODE_SMOOTH,
+                 false);
 
     println!("Press enter to exit.");
     let mut _input = String::new();

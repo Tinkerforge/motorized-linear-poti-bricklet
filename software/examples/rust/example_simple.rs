@@ -1,6 +1,8 @@
-use std::{error::Error, io};
+use std::{io, error::Error};
 
-use tinkerforge::{ip_connection::IpConnection, motorized_linear_poti_bricklet::*};
+use tinkerforge::{ip_connection::IpConnection, 
+                  motorized_linear_poti_bricklet::*};
+
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -11,11 +13,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mlp = MotorizedLinearPotiBricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-                                          // Don't use device before ipcon is connected.
+    // Don't use device before ipcon is connected.
 
-    // Get current position.
-    let position = mlp.get_position().recv()?;
-    println!("Position: {}", position); // Range: 0 to 100
+		// Get current position.
+let position = mlp.get_position().recv()?;
+		println!("Position: {}", position); // Range: 0 to 100
 
     println!("Press enter to exit.");
     let mut _input = String::new();
