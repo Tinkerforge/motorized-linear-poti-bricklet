@@ -1,0 +1,8 @@
+
+
+# Change XYZ to the UID of your Motorized Linear Poti Bricklet
+
+setup:
+	# Get current position
+	subscribe to tinkerforge/response/motorized_linear_poti/XYZ/get_position
+	publish '' to tinkerforge/request/motorized_linear_poti_bricklet/XYZ/get_position 
