@@ -33,7 +33,7 @@ int main(void) {
 	// Register position reached callback to function cb_position_reached
 	motorized_linear_poti_register_callback(&mlp,
 	                                        MOTORIZED_LINEAR_POTI_CALLBACK_POSITION_REACHED,
-	                                        (void *)cb_position_reached,
+	                                        (void (*)(void))cb_position_reached,
 	                                        NULL);
 
 	// Move slider smooth to the middle

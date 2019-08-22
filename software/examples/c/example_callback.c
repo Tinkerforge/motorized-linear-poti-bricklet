@@ -33,7 +33,7 @@ int main(void) {
 	// Register position callback to function cb_position
 	motorized_linear_poti_register_callback(&mlp,
 	                                        MOTORIZED_LINEAR_POTI_CALLBACK_POSITION,
-	                                        (void *)cb_position,
+	                                        (void (*)(void))cb_position,
 	                                        NULL);
 
 	// Set period for position callback to 0.05s (50ms) without a threshold
