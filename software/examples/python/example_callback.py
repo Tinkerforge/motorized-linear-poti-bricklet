@@ -25,5 +25,5 @@ if __name__ == "__main__":
     # Set period for position callback to 0.05s (50ms) without a threshold
     mlp.set_position_callback_configuration(50, False, "x", 0, 0)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()

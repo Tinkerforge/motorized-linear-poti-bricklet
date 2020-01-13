@@ -25,5 +25,5 @@ if __name__ == "__main__":
     # Move slider smooth to the middle
     mlp.set_motor_position(50, mlp.DRIVE_MODE_SMOOTH, False)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
