@@ -4,6 +4,6 @@ setup:
 	# Handle incoming position reached callbacks
 	subscribe to tinkerforge/callback/motorized_linear_poti_bricklet/XYZ/position_reached
 	publish '{"register": true}' to tinkerforge/register/motorized_linear_poti_bricklet/XYZ/position_reached # Register position_reached callback
-	
+
 	# Move slider smooth to the middle
 	publish '{"position": 50, "drive_mode": "smooth", "hold_position": false}' to tinkerforge/request/motorized_linear_poti_bricklet/XYZ/set_motor_position 

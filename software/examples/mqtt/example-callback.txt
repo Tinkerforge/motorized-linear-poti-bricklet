@@ -4,6 +4,6 @@ setup:
 	# Handle incoming position callbacks
 	subscribe to tinkerforge/callback/motorized_linear_poti_bricklet/XYZ/position
 	publish '{"register": true}' to tinkerforge/register/motorized_linear_poti_bricklet/XYZ/position # Register position callback
-	
+
 	# Set period for position callback to 0.05s (50ms) without a threshold
 	publish '{"period": 50, "value_has_to_change": false, "option": "off", "min": 0, "max": 0}' to tinkerforge/request/motorized_linear_poti_bricklet/XYZ/set_position_callback_configuration
