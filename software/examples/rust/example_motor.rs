@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     });
 
     // Move slider smooth to the middle
-    mlp.set_motor_position(50, MOTORIZED_LINEAR_POTI_BRICKLET_DRIVE_MODE_SMOOTH, false);
+    mlp.set_motor_position(50, MOTORIZED_LINEAR_POTI_BRICKLET_DRIVE_MODE_SMOOTH, false).recv()?;
 
     println!("Press enter to exit.");
     let mut _input = String::new();
