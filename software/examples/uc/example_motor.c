@@ -1,13 +1,9 @@
-
-
 #include "bindings/hal_common.h"
 #include "bindings/bricklet_motorized_linear_poti.h"
 
 #define UID "XYZ" // Change XYZ to the UID of your Motorized Linear Poti Bricklet
 
 void check(int rc, const char* msg);
-
-
 
 // Callback function for position reached callback
 void position_reached_handler(TF_MotorizedLinearPoti *device, uint16_t position,
@@ -16,7 +12,6 @@ void position_reached_handler(TF_MotorizedLinearPoti *device, uint16_t position,
 
 	tf_hal_printf("Position: %u\n", position); // Range: 0 to 100
 }
-
 
 TF_MotorizedLinearPoti mlp;
 
