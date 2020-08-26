@@ -19,17 +19,15 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_motorized_linear_poti_create(&mlp, UID, hal), "create device object");
 
-
 	// Register position reached callback to function position_reached_handler
 	tf_motorized_linear_poti_register_position_reached_callback(&mlp,
-	                                                           position_reached_handler,
-	                                                           NULL);
+	                                                            position_reached_handler,
+	                                                            NULL);
 
 	// Move slider smooth to the middle
 	check(tf_motorized_linear_poti_set_motor_position(&mlp, 50,
 	                                                  TF_MOTORIZED_LINEAR_POTI_DRIVE_MODE_SMOOTH,
 	                                                  false), "call set_motor_position");
-
 }
 
 void example_loop(TF_HalContext *hal) {

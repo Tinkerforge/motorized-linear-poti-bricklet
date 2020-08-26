@@ -19,15 +19,13 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_motorized_linear_poti_create(&mlp, UID, hal), "create device object");
 
-
 	// Register position callback to function position_handler
 	tf_motorized_linear_poti_register_position_callback(&mlp,
-	                                                   position_handler,
-	                                                   NULL);
+	                                                    position_handler,
+	                                                    NULL);
 
 	// Set period for position callback to 0.05s (50ms) without a threshold
 	tf_motorized_linear_poti_set_position_callback_configuration(&mlp, 50, false, 'x', 0, 0);
-
 }
 
 void example_loop(TF_HalContext *hal) {

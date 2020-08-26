@@ -11,13 +11,11 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_motorized_linear_poti_create(&mlp, UID, hal), "create device object");
 
-
 	// Get current position
 	uint16_t position;
 	check(tf_motorized_linear_poti_get_position(&mlp, &position), "get position");
 
 	tf_hal_printf("Position: %u\n", position); // Range: 0 to 100
-
 }
 
 void example_loop(TF_HalContext *hal) {
