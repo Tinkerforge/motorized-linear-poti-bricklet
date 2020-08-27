@@ -5,15 +5,19 @@
 
 void check(int rc, const char* msg);
 
+void example_setup(TF_HalContext *hal);
+void example_loop(TF_HalContext *hal);
+
+
 // Callback function for position callback
-void position_handler(TF_MotorizedLinearPoti *device, uint16_t position,
-                      void *user_data) {
+static void position_handler(TF_MotorizedLinearPoti *device, uint16_t position,
+                             void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
 	tf_hal_printf("Position: %u\n", position); // Range: 0 to 100
 }
 
-TF_MotorizedLinearPoti mlp;
+static TF_MotorizedLinearPoti mlp;
 
 void example_setup(TF_HalContext *hal) {
 	// Create device object
