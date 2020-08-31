@@ -14,7 +14,7 @@ static void position_reached_handler(TF_MotorizedLinearPoti *device, uint16_t po
                                      void *user_data) {
 	(void)device; (void)user_data; // avoid unused parameter warning
 
-	tf_hal_printf("Position: %u\n", position); // Range: 0 to 100
+	tf_hal_printf("Position: %I16u\n", position); // Range: 0 to 100
 }
 
 static TF_MotorizedLinearPoti mlp;

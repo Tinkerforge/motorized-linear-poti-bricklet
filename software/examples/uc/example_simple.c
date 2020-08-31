@@ -19,7 +19,7 @@ void example_setup(TF_HalContext *hal) {
 	uint16_t position;
 	check(tf_motorized_linear_poti_get_position(&mlp, &position), "get position");
 
-	tf_hal_printf("Position: %u\n", position); // Range: 0 to 100
+	tf_hal_printf("Position: %I16u\n", position); // Range: 0 to 100
 }
 
 void example_loop(TF_HalContext *hal) {
