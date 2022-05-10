@@ -20,7 +20,7 @@ func main() {
 
 	// Get current position.
 	position, _ := mlp.GetPosition()
-	fmt.Printf("Position: \n", position) // Range: 0 to 100
+	fmt.Printf("Position: %d\n", position) // Range: 0 to 100
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()
